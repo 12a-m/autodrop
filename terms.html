@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Terms of Service — AutoDrop</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink: #0d0d0d;
+  --paper: #f7f4ef;
+  --muted: #8a857c;
+  --accent: #c8432b;
+  --border: rgba(13,13,13,0.10);
+  --card: #ffffff;
+  --surface: #f0ebe3;
+  --green: #1a7a4a;
+  --green-bg: #edf7f2;
+  --amber: #92580a;
+  --amber-bg: #fef6e8;
+  --red-bg: #fdeaea;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --ink: #f0ece6; --paper: #111110; --muted: #736e66;
+    --border: rgba(240,236,230,0.09); --card: #1a1917; --surface: #1f1e1b;
+    --green-bg: #0e2218; --amber-bg: #1f1505; --red-bg: #200a08;
+  }
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--paper);
+  color: var(--ink);
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+/* NAV */
+nav {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 18px 48px; border-bottom: 1px solid var(--border);
+  position: sticky; top: 0; background: var(--paper); z-index: 100;
+}
+.logo { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 1.25rem; text-decoration: none; color: var(--ink); }
+.logo span { color: var(--accent); }
+.nav-link { font-size: 0.82rem; color: var(--muted); text-decoration: none; }
+.nav-link:hover { color: var(--ink); }
+
+/* LAYOUT */
+.container { max-width: 800px; margin: 0 auto; padding: 64px 32px 100px; }
+
+/* HERO */
+.doc-header { margin-bottom: 48px; padding-bottom: 32px; border-bottom: 2px solid var(--accent); }
+.doc-eyebrow {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 0.72rem; font-weight: 500; letter-spacing: 0.08em;
+  text-transform: uppercase; color: var(--accent); margin-bottom: 16px;
+}
+.doc-title {
+  font-family: 'Syne', sans-serif; font-weight: 800;
+  font-size: clamp(2rem, 5vw, 3rem); letter-spacing: -1px;
+  line-height: 1.05; color: var(--ink); margin-bottom: 16px;
+}
+.doc-meta { display: flex; gap: 24px; flex-wrap: wrap; }
+.meta-item { font-size: 0.8rem; color: var(--muted); }
+.meta-item strong { color: var(--ink); font-weight: 500; }
+
+/* TABLE OF CONTENTS */
+.toc {
+  background: var(--surface); border-radius: 10px;
+  padding: 24px 28px; margin-bottom: 48px;
+}
+.toc-title { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 0.82rem;
+  letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted);
+  margin-bottom: 14px; }
+.toc-list { list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 4px 24px; }
+.toc-list li a {
+  font-size: 0.85rem; color: var(--muted); text-decoration: none;
+  display: flex; align-items: baseline; gap: 8px; padding: 3px 0;
+  transition: color 0.15s;
+}
+.toc-list li a:hover { color: var(--accent); }
+.toc-num { font-size: 0.72rem; color: var(--accent); font-weight: 500; flex-shrink: 0; }
+
+/* SECTIONS */
+.section { margin-bottom: 56px; }
+.section-number {
+  font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em;
+  text-transform: uppercase; color: var(--accent); margin-bottom: 8px;
+}
+.section-title {
+  font-family: 'Syne', sans-serif; font-weight: 700; font-size: 1.35rem;
+  letter-spacing: -0.3px; color: var(--ink); margin-bottom: 16px;
+  padding-bottom: 10px; border-bottom: 1px solid var(--border);
+}
+.section p { margin-bottom: 14px; color: var(--ink); font-size: 0.95rem; line-height: 1.75; }
+.section p:last-child { margin-bottom: 0; }
+.section ul, .section ol { margin: 12px 0 16px 20px; }
+.section ul li, .section ol li {
+  font-size: 0.95rem; color: var(--ink); margin-bottom: 8px; line-height: 1.65;
+}
+
+/* CALLOUT BOXES */
+.callout {
+  border-radius: 8px; padding: 18px 22px; margin: 20px 0;
+  border-left: 3px solid;
+}
+.callout-title { font-size: 0.78rem; font-weight: 700; letter-spacing: 0.04em;
+  text-transform: uppercase; margin-bottom: 6px; }
+.callout p { font-size: 0.88rem !important; margin-bottom: 0 !important; }
+.callout.warning { background: var(--amber-bg); border-color: var(--amber); }
+.callout.warning .callout-title { color: var(--amber); }
+.callout.danger  { background: var(--red-bg);   border-color: var(--accent); }
+.callout.danger  .callout-title { color: var(--accent); }
+.callout.info    { background: var(--green-bg); border-color: var(--green); }
+.callout.info    .callout-title { color: var(--green); }
+
+/* IMPORTANT CLAUSE */
+.important-clause {
+  background: var(--ink); color: var(--paper);
+  border-radius: 8px; padding: 22px 26px; margin: 24px 0;
+}
+.important-clause .clause-label {
+  font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em;
+  text-transform: uppercase; color: var(--accent); margin-bottom: 8px;
+}
+.important-clause p {
+  font-size: 0.88rem; color: var(--paper) !important;
+  line-height: 1.7; margin-bottom: 0 !important;
+}
+
+/* DEFINITION */
+.definition-list { margin: 12px 0; }
+.definition-item {
+  display: grid; grid-template-columns: 180px 1fr;
+  gap: 12px; padding: 10px 0; border-bottom: 1px solid var(--border);
+  font-size: 0.9rem;
+}
+.definition-term { font-weight: 600; color: var(--ink); }
+.definition-desc { color: var(--muted); }
+
+/* LAST UPDATED / EFFECTIVE */
+.doc-effective {
+  background: var(--surface); border-radius: 8px; padding: 16px 20px;
+  font-size: 0.82rem; color: var(--muted); margin-bottom: 48px;
+  display: flex; gap: 24px; flex-wrap: wrap;
+}
+.doc-effective strong { color: var(--ink); }
+
+/* LEGAL RISK SECTION (at bottom — styled differently) */
+.risk-section {
+  border: 2px solid var(--accent); border-radius: 12px;
+  padding: 32px; margin-top: 72px; background: var(--red-bg);
+}
+.risk-header {
+  display: flex; align-items: center; gap: 12px; margin-bottom: 20px;
+}
+.risk-icon { font-size: 1.8rem; }
+.risk-title {
+  font-family: 'Syne', sans-serif; font-weight: 800; font-size: 1.2rem;
+  color: var(--accent);
+}
+.risk-sub { font-size: 0.8rem; color: var(--muted); margin-top: 2px; }
+.risk-item {
+  background: var(--card); border-radius: 8px; padding: 18px 20px;
+  margin-bottom: 12px; border-left: 3px solid var(--accent);
+}
+.risk-item:last-child { margin-bottom: 0; }
+.risk-item-title { font-weight: 600; font-size: 0.95rem; color: var(--ink); margin-bottom: 6px; }
+.risk-item-body { font-size: 0.88rem; color: var(--muted); line-height: 1.65; }
+.risk-item-body strong { color: var(--ink); }
+.risk-level {
+  display: inline-block; font-size: 0.65rem; font-weight: 700;
+  letter-spacing: 0.06em; text-transform: uppercase;
+  padding: 2px 8px; border-radius: 3px; margin-left: 8px; vertical-align: middle;
+}
+.risk-high   { background: #fdeaea; color: var(--accent); }
+.risk-medium { background: var(--amber-bg); color: var(--amber); }
+.risk-low    { background: var(--green-bg); color: var(--green); }
+
+/* FOOTER */
+footer {
+  border-top: 1px solid var(--border); padding: 24px 48px;
+  display: flex; justify-content: space-between; align-items: center;
+  flex-wrap: wrap; gap: 10px;
+}
+.footer-logo { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 0.95rem; }
+.footer-logo span { color: var(--accent); }
+.footer-text { font-size: 0.78rem; color: var(--muted); }
+
+@media (max-width: 640px) {
+  nav, footer { padding-left: 20px; padding-right: 20px; }
+  .container { padding: 40px 20px 80px; }
+  .toc-list { grid-template-columns: 1fr; }
+  .definition-item { grid-template-columns: 1fr; gap: 4px; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="logo" href="index.html">auto<span>drop</span></a>
+  <a class="nav-link" href="index.html">← Back to listings</a>
+</nav>
+
+<div class="container">
+
+  <!-- HEADER -->
+  <div class="doc-header">
+    <div class="doc-eyebrow">Legal Document</div>
+    <h1 class="doc-title">Terms of Service</h1>
+    <div class="doc-meta">
+      <div class="meta-item"><strong>Version:</strong> 1.0</div>
+      <div class="meta-item"><strong>Effective:</strong> 1 January 2026</div>
+      <div class="meta-item"><strong>Jurisdiction:</strong> Republic of Zimbabwe</div>
+      <div class="meta-item"><strong>Governing law:</strong> Laws of Zimbabwe</div>
+    </div>
+  </div>
+
+  <div class="doc-effective">
+    <span>By accessing or using AutoDrop, you agree to be bound by these Terms of Service in their entirety.</span>
+    <span><strong>Last updated:</strong> January 2026</span>
+  </div>
+
+  <!-- TABLE OF CONTENTS -->
+  <div class="toc">
+    <div class="toc-title">Contents</div>
+    <ol class="toc-list">
+      <li><a href="#s1"><span class="toc-num">01</span> About AutoDrop</a></li>
+      <li><a href="#s2"><span class="toc-num">02</span> Acceptance of Terms</a></li>
+      <li><a href="#s3"><span class="toc-num">03</span> Platform Role &amp; Limitations</a></li>
+      <li><a href="#s4"><span class="toc-num">04</span> User Responsibilities</a></li>
+      <li><a href="#s5"><span class="toc-num">05</span> Prohibited Conduct</a></li>
+      <li><a href="#s6"><span class="toc-num">06</span> Disclaimer of Warranties</a></li>
+      <li><a href="#s7"><span class="toc-num">07</span> Limitation of Liability</a></li>
+      <li><a href="#s8"><span class="toc-num">08</span> Indemnification</a></li>
+      <li><a href="#s9"><span class="toc-num">09</span> Fraudulent Listings</a></li>
+      <li><a href="#s10"><span class="toc-num">10</span> Intellectual Property</a></li>
+      <li><a href="#s11"><span class="toc-num">11</span> Privacy &amp; Data</a></li>
+      <li><a href="#s12"><span class="toc-num">12</span> Termination</a></li>
+      <li><a href="#s13"><span class="toc-num">13</span> Governing Law</a></li>
+      <li><a href="#s14"><span class="toc-num">14</span> Changes to Terms</a></li>
+      <li><a href="#s15"><span class="toc-num">15</span> Contact</a></li>
+    </ol>
+  </div>
+
+  <!-- SECTION 1 -->
+  <div class="section" id="s1">
+    <div class="section-number">Section 01</div>
+    <div class="section-title">About AutoDrop</div>
+    <p>AutoDrop ("the Platform," "we," "us," or "our") is an online marketplace operated by AutoDrop (Private) Limited, a company incorporated under the laws of Zimbabwe. The Platform provides a venue where private individuals ("Sellers") can list motor vehicles for sale and where other individuals ("Buyers") can browse and contact Sellers directly.</p>
+    <p>AutoDrop is a <strong>classified advertisement platform only</strong>. We are not a vehicle dealer, agent, broker, auctioneer, or financial intermediary. We do not buy, sell, own, inspect, certify, finance, or insure any vehicle listed on the Platform.</p>
+    <div class="definition-list">
+      <div class="definition-item">
+        <div class="definition-term">AutoDrop / Platform</div>
+        <div class="definition-desc">The website autodrop.co.zw and all associated services operated by AutoDrop (Pvt) Ltd</div>
+      </div>
+      <div class="definition-item">
+        <div class="definition-term">User</div>
+        <div class="definition-desc">Any person who accesses or uses the Platform, whether as a Buyer, Seller, or visitor</div>
+      </div>
+      <div class="definition-item">
+        <div class="definition-term">Seller</div>
+        <div class="definition-desc">A User who submits a listing for a vehicle on the Platform</div>
+      </div>
+      <div class="definition-item">
+        <div class="definition-term">Buyer</div>
+        <div class="definition-desc">A User who contacts a Seller or enquires about a listed vehicle</div>
+      </div>
+      <div class="definition-item">
+        <div class="definition-term">Listing</div>
+        <div class="definition-desc">Any advertisement for a vehicle submitted to and published on the Platform</div>
+      </div>
+      <div class="definition-item">
+        <div class="definition-term">Transaction</div>
+        <div class="definition-desc">Any sale, purchase, negotiation, or agreement conducted between a Buyer and Seller</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 2 -->
+  <div class="section" id="s2">
+    <div class="section-number">Section 02</div>
+    <div class="section-title">Acceptance of Terms</div>
+    <p>By accessing, browsing, registering on, or using the Platform in any way, you confirm that you have read, understood, and agree to be legally bound by these Terms of Service and our Privacy Policy.</p>
+    <p>If you do not agree to these Terms in their entirety, you must immediately cease using the Platform. Your continued use of the Platform following any amendment to these Terms constitutes acceptance of the revised Terms.</p>
+    <div class="callout warning">
+      <div class="callout-title">Age Requirement</div>
+      <p>You must be at least 18 years of age to use AutoDrop. By using the Platform you confirm that you are 18 or older. AutoDrop reserves the right to terminate access for any User found to be under 18.</p>
+    </div>
+  </div>
+
+  <!-- SECTION 3 -->
+  <div class="section" id="s3">
+    <div class="section-number">Section 03</div>
+    <div class="section-title">Platform Role &amp; Limitations</div>
+
+    <div class="important-clause">
+      <div class="clause-label">Core Disclaimer — Read Carefully</div>
+      <p>AutoDrop operates solely as a neutral advertising platform. We provide a technical service that enables Users to post and view vehicle listings. We are not a party to any transaction between Buyers and Sellers. All transactions are conducted entirely between the relevant Buyer and Seller without any involvement, oversight, guarantee, or warranty from AutoDrop.</p>
+    </div>
+
+    <p>AutoDrop does not:</p>
+    <ul>
+      <li>Verify the identity, credentials, or trustworthiness of any User</li>
+      <li>Verify the accuracy, completeness, or truthfulness of any Listing</li>
+      <li>Inspect, test, certify, appraise, or guarantee the condition of any vehicle</li>
+      <li>Confirm that any Seller has legal title or the right to sell any vehicle</li>
+      <li>Guarantee that a vehicle is free from liens, outstanding finance, or legal encumbrances</li>
+      <li>Facilitate, process, hold, or guarantee any payment between Buyers and Sellers</li>
+      <li>Provide any after-sale warranty, guarantee, or remedy for any vehicle</li>
+      <li>Mediate, arbitrate, or resolve any dispute between Users</li>
+      <li>Investigate complaints of fraud, misrepresentation, or criminal activity</li>
+    </ul>
+
+    <p>Users acknowledge that AutoDrop has no control over the conduct of any Buyer or Seller and makes no representations whatsoever regarding the quality, safety, legality, or any other aspect of any vehicle listed on the Platform.</p>
+  </div>
+
+  <!-- SECTION 4 -->
+  <div class="section" id="s4">
+    <div class="section-number">Section 04</div>
+    <div class="section-title">User Responsibilities</div>
+    <p><strong>All Users</strong> agree to use the Platform only for lawful purposes and in accordance with these Terms.</p>
+    <p><strong>Sellers specifically agree that:</strong></p>
+    <ul>
+      <li>They are the legal owner of the vehicle being listed or have full authority to sell it on behalf of the owner</li>
+      <li>All information provided in a Listing is accurate, complete, and not misleading in any way</li>
+      <li>All photographs submitted are genuine images of the actual vehicle being sold</li>
+      <li>The vehicle is not subject to any outstanding finance, hire purchase, or lien that has not been disclosed</li>
+      <li>The vehicle has not been stolen, cloned, or otherwise obtained unlawfully</li>
+      <li>The asking price is genuine and reflects a bona fide intention to sell</li>
+      <li>They will promptly remove or request removal of a Listing when a vehicle is sold or no longer available</li>
+      <li>They accept full legal responsibility for the accuracy of their Listing and the condition of their vehicle</li>
+    </ul>
+    <p><strong>Buyers specifically agree that:</strong></p>
+    <ul>
+      <li>They conduct their own due diligence on any vehicle before purchasing, including physical inspection and verification of ownership documents</li>
+      <li>They verify ZINARA registration, Police Clearance, and any other applicable documentation independently</li>
+      <li>They assume all risks associated with any transaction entered into as a result of using the Platform</li>
+      <li>They do not hold AutoDrop responsible for any loss suffered as a result of a transaction with a Seller</li>
+    </ul>
+  </div>
+
+  <!-- SECTION 5 -->
+  <div class="section" id="s5">
+    <div class="section-number">Section 05</div>
+    <div class="section-title">Prohibited Conduct</div>
+    <p>The following conduct is strictly prohibited on the Platform. Violation may result in immediate termination of access and may be reported to law enforcement authorities:</p>
+    <ul>
+      <li>Posting false, fraudulent, misleading, or deceptive Listings of any kind</li>
+      <li>Listing a vehicle you do not own or have no right to sell</li>
+      <li>Using another person's identity or contact details without their permission</li>
+      <li>Posting vehicles that have been stolen, hijacked, or obtained by any unlawful means</li>
+      <li>Engaging in any form of advance fee fraud ("419 fraud") or requesting deposits for non-existent vehicles</li>
+      <li>Harassment, threats, or abusive conduct directed at any other User</li>
+      <li>Scraping, copying, or reproducing any content from the Platform without prior written consent</li>
+      <li>Attempting to circumvent, disable, or interfere with any security feature of the Platform</li>
+      <li>Using the Platform to advertise any goods or services other than private motor vehicles</li>
+      <li>Spamming other Users or sending unsolicited commercial communications</li>
+      <li>Using automated bots or scripts to interact with the Platform</li>
+      <li>Posting content that is defamatory, obscene, offensive, or in violation of any Zimbabwean law</li>
+    </ul>
+  </div>
+
+  <!-- SECTION 6 -->
+  <div class="section" id="s6">
+    <div class="section-number">Section 06</div>
+    <div class="section-title">Disclaimer of Warranties</div>
+
+    <div class="important-clause">
+      <div class="clause-label">No Warranties</div>
+      <p>THE PLATFORM IS PROVIDED ON AN "AS IS" AND "AS AVAILABLE" BASIS WITHOUT ANY WARRANTIES OF ANY KIND, EITHER EXPRESS OR IMPLIED. TO THE FULLEST EXTENT PERMITTED BY ZIMBABWEAN LAW, AUTODROP EXPRESSLY DISCLAIMS ALL WARRANTIES INCLUDING BUT NOT LIMITED TO IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NON-INFRINGEMENT.</p>
+    </div>
+
+    <p>AutoDrop does not warrant or represent that:</p>
+    <ul>
+      <li>The Platform will be available at all times or free from errors, interruptions, or security vulnerabilities</li>
+      <li>Any Listing is accurate, complete, genuine, or legally compliant</li>
+      <li>Any Seller is who they claim to be or has the right to sell the vehicle listed</li>
+      <li>Any vehicle described in a Listing matches its actual condition</li>
+      <li>Use of the Platform will result in a successful or satisfactory transaction</li>
+      <li>The Platform is free from viruses or other harmful components</li>
+    </ul>
+
+    <p>AutoDrop makes no representation that the Platform is appropriate or lawful for use in any jurisdiction outside of Zimbabwe.</p>
+  </div>
+
+  <!-- SECTION 7 -->
+  <div class="section" id="s7">
+    <div class="section-number">Section 07</div>
+    <div class="section-title">Limitation of Liability</div>
+
+    <div class="important-clause">
+      <div class="clause-label">Critical Liability Cap</div>
+      <p>TO THE MAXIMUM EXTENT PERMITTED BY LAW, AUTODROP AND ITS DIRECTORS, OFFICERS, EMPLOYEES, AGENTS, AND AFFILIATES SHALL NOT BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES ARISING OUT OF OR RELATED TO YOUR USE OF THE PLATFORM, INCLUDING BUT NOT LIMITED TO: LOSS OF MONEY, LOSS OF A VEHICLE, FRAUD, MISREPRESENTATION BY A THIRD PARTY, OR ANY TRANSACTION-RELATED LOSS — REGARDLESS OF WHETHER AUTODROP HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.</p>
+    </div>
+
+    <p>Without limiting the above, AutoDrop shall not be liable for:</p>
+    <ul>
+      <li>Any financial loss suffered by a Buyer or Seller as a result of a fraudulent transaction</li>
+      <li>The purchase of a stolen, cloned, or encumbered vehicle listed on the Platform</li>
+      <li>Any personal injury, death, or property damage arising from a vehicle purchased via the Platform</li>
+      <li>Any loss arising from the Platform being unavailable, delayed, or inaccurate</li>
+      <li>Unauthorised access to or alteration of a User's data</li>
+      <li>Any loss arising from reliance on information contained in a Listing</li>
+      <li>Any consequential loss arising from a dispute between a Buyer and Seller</li>
+    </ul>
+
+    <p>Where liability cannot be fully excluded by law, AutoDrop's total aggregate liability to any User for any claim shall not exceed the total amount paid by that User to AutoDrop in the six months preceding the claim, or USD $10.00, whichever is greater.</p>
+  </div>
+
+  <!-- SECTION 8 -->
+  <div class="section" id="s8">
+    <div class="section-number">Section 08</div>
+    <div class="section-title">Indemnification</div>
+    <p>You agree to indemnify, defend, and hold harmless AutoDrop (Pvt) Ltd, its parent company, directors, officers, employees, agents, and licensors from and against any and all claims, liabilities, damages, losses, costs, and expenses (including reasonable legal fees) arising out of or in any way related to:</p>
+    <ul>
+      <li>Your use of or access to the Platform</li>
+      <li>Your violation of these Terms of Service</li>
+      <li>Any Listing you submit, including any claim that it is false, misleading, or fraudulent</li>
+      <li>Your violation of any applicable Zimbabwean law or regulation</li>
+      <li>Any dispute between you and another User of the Platform</li>
+      <li>Any infringement by you of the rights of any third party</li>
+    </ul>
+    <p>This indemnification obligation will survive termination of your use of the Platform.</p>
+  </div>
+
+  <!-- SECTION 9 -->
+  <div class="section" id="s9">
+    <div class="section-number">Section 09</div>
+    <div class="section-title">Fraudulent Listings &amp; Buyer Safety</div>
+
+    <div class="callout danger">
+      <div class="callout-title">AutoDrop Does Not Guarantee Against Fraud</div>
+      <p>While AutoDrop moderates listings and reserves the right to remove suspicious content, we cannot guarantee that every listing is genuine. Users transact entirely at their own risk. Always conduct an in-person inspection before paying any money.</p>
+    </div>
+
+    <p>AutoDrop reserves the right — but is not obligated — to remove any Listing that is reported as or suspected to be fraudulent. The removal of a Listing does not constitute an admission of liability on the part of AutoDrop nor does it guarantee that fraud has or has not occurred.</p>
+
+    <div class="callout info">
+      <div class="callout-title">AutoDrop's Safety Recommendations to Buyers</div>
+      <p>Always meet in a public place. Never pay a deposit before seeing the car in person. Verify the vehicle registration documents match the seller's ID. Run a police clearance check before purchase. Never send money via EcoCash or transfer before physically confirming the vehicle exists.</p>
+    </div>
+
+    <p>If a User suspects fraud, they are advised to report the matter directly to the Zimbabwe Republic Police. AutoDrop may cooperate with law enforcement investigations but is not a law enforcement body and cannot compel Users to comply with any direction.</p>
+
+    <p>AutoDrop accepts no liability for financial losses suffered as a result of fraudulent listings, impersonation, or any criminal activity carried out by third parties who have used the Platform.</p>
+  </div>
+
+  <!-- SECTION 10 -->
+  <div class="section" id="s10">
+    <div class="section-number">Section 10</div>
+    <div class="section-title">Intellectual Property</div>
+    <p>The AutoDrop name, logo, website design, software, and all associated branding are the intellectual property of AutoDrop (Pvt) Ltd and are protected under Zimbabwean intellectual property law. You may not reproduce, copy, distribute, or use any of our branding without prior written consent.</p>
+    <p>By submitting a Listing, you grant AutoDrop a non-exclusive, royalty-free, worldwide licence to display, reproduce, and distribute the content of your Listing (including photographs) on the Platform and in AutoDrop marketing materials. You confirm that you own or have the right to grant this licence for all content you submit.</p>
+  </div>
+
+  <!-- SECTION 11 -->
+  <div class="section" id="s11">
+    <div class="section-number">Section 11</div>
+    <div class="section-title">Privacy &amp; Data</div>
+    <p>AutoDrop collects and processes personal data submitted by Users solely for the purpose of operating the Platform. This includes contact details provided in Listings, which are visible to other Users for the purpose of facilitating direct contact between Buyers and Sellers.</p>
+    <p>By submitting a Listing, you consent to your contact details (name and phone number) being visible to the public on the Platform. Do not submit personal information you do not wish to be publicly visible.</p>
+    <p>AutoDrop will not sell your personal data to third parties for marketing purposes. Data may be disclosed to law enforcement authorities where required by Zimbabwean law.</p>
+    <div class="callout warning">
+      <div class="callout-title">Data Visibility Notice</div>
+      <p>Contact information entered in a listing (name, phone number, email) is visible to all visitors of the Platform. AutoDrop is not responsible for any unsolicited contact, spam, or misuse of contact details by third parties who view your listing.</p>
+    </div>
+  </div>
+
+  <!-- SECTION 12 -->
+  <div class="section" id="s12">
+    <div class="section-number">Section 12</div>
+    <div class="section-title">Termination</div>
+    <p>AutoDrop reserves the right to suspend or terminate your access to the Platform at any time, with or without notice, for any reason including but not limited to violation of these Terms, fraudulent activity, or conduct that AutoDrop deems harmful to other Users or to the Platform.</p>
+    <p>Upon termination, your right to use the Platform ceases immediately. AutoDrop may at its discretion remove your Listings and any associated data. Termination does not affect any rights or obligations that have accrued prior to termination.</p>
+    <p>You may cease using the Platform at any time. Removal of your Listing can be requested by contacting AutoDrop directly.</p>
+  </div>
+
+  <!-- SECTION 13 -->
+  <div class="section" id="s13">
+    <div class="section-number">Section 13</div>
+    <div class="section-title">Governing Law &amp; Dispute Resolution</div>
+    <p>These Terms of Service shall be governed by and construed in accordance with the laws of the Republic of Zimbabwe. Any dispute arising out of or in connection with these Terms or your use of the Platform shall be subject to the exclusive jurisdiction of the courts of Zimbabwe.</p>
+    <p>In the event of a dispute between AutoDrop and a User, the parties agree to first attempt to resolve the matter through good-faith negotiation before commencing any legal proceedings. Notice of a dispute must be sent in writing to AutoDrop's registered address or email address.</p>
+    <p>AutoDrop is not responsible for resolving disputes between Buyers and Sellers. Any such disputes are entirely the responsibility of the parties involved.</p>
+  </div>
+
+  <!-- SECTION 14 -->
+  <div class="section" id="s14">
+    <div class="section-number">Section 14</div>
+    <div class="section-title">Changes to These Terms</div>
+    <p>AutoDrop reserves the right to modify these Terms of Service at any time. When we make material changes, we will update the "Last updated" date at the top of this page. In some cases we may provide additional notice such as a banner on the Platform.</p>
+    <p>Your continued use of the Platform after any changes take effect constitutes your acceptance of the revised Terms. If you do not agree to the revised Terms, you must stop using the Platform.</p>
+  </div>
+
+  <!-- SECTION 15 -->
+  <div class="section" id="s15">
+    <div class="section-number">Section 15</div>
+    <div class="section-title">Contact</div>
+    <p>For any questions regarding these Terms of Service, to report a fraudulent listing, or to request removal of a Listing, please contact AutoDrop at:</p>
+    <ul>
+      <li><strong>Company:</strong> AutoDrop (Private) Limited</li>
+      <li><strong>Website:</strong> autodrop.co.zw</li>
+      <li><strong>Email:</strong> legal@autodrop.co.zw</li>
+    </ul>
+    <p>AutoDrop will endeavour to respond to legal correspondence within 10 business days.</p>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       LEGAL RISK SECTION — Separate from ToS, for your eyes only
+  ═══════════════════════════════════════════════════════════════ -->
+  <div class="risk-section">
+    <div class="risk-header">
+      <div class="risk-icon">⚖️</div>
+      <div>
+        
+
+    
+
+
+
+<footer>
+  <div class="footer-logo">auto<span>drop</span></div>
+  <div class="footer-text">© 2026 AutoDrop (Pvt) Ltd · All rights reserved · <a href="index.html" style="color:var(--muted)">Back to listings</a></div>
+</footer>
+
+</body>
+</html>

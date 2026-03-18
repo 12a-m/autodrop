@@ -19,12 +19,14 @@ body{font-family:'DM Sans',sans-serif;background:var(--paper);color:var(--ink);m
 
 /* NAV */
 nav{display:flex;justify-content:space-between;align-items:center;padding:18px 36px;border-bottom:1px solid var(--border);position:sticky;top:0;background:var(--paper);z-index:100}
-.logo{font-family:'Syne',sans-serif;font-weight:800;font-size:1.3rem;letter-spacing:-0.5px;color:var(--ink);cursor:pointer;text-decoration:none}
+.logo{font-family:'Syne',sans-serif;font-weight:800;font-size:1.6rem;letter-spacing:-1.5px;color:var(--ink);cursor:pointer;text-decoration:none;line-height:1}
 .logo span{color:var(--accent)}
 .nav-right{display:flex;align-items:center;gap:14px}
 .nav-count{font-size:0.8rem;color:var(--muted)}
 .btn-list{background:var(--accent);color:#fff;border:none;padding:10px 22px;font-family:'DM Sans',sans-serif;font-size:0.85rem;font-weight:500;border-radius:6px;cursor:pointer;transition:background 0.18s,transform 0.12s}
 .btn-list:hover{background:var(--accent2);transform:translateY(-1px)}
+.btn-terms{background:transparent;color:var(--muted);border:1px solid var(--border);padding:8px 16px;font-family:'DM Sans',sans-serif;font-size:0.8rem;border-radius:6px;cursor:pointer;transition:all 0.18s;text-decoration:none;display:inline-flex;align-items:center;gap:5px}
+.btn-terms:hover{border-color:var(--ink);color:var(--ink)}
 
 /* HERO */
 .hero{padding:60px 36px 52px;border-bottom:1px solid var(--border)}
@@ -238,9 +240,11 @@ textarea{min-height:76px;resize:vertical;line-height:1.6}
 .detail-loc{display:flex;align-items:center;gap:6px;font-size:0.85rem;color:var(--muted);margin-bottom:4px}
 
 footer{border-top:1px solid var(--border);padding:22px 36px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px}
-.footer-logo{font-family:'Syne',sans-serif;font-weight:800;font-size:0.95rem;color:var(--ink)}
+.footer-logo{font-family:'Syne',sans-serif;font-weight:800;font-size:1.1rem;letter-spacing:-0.8px;color:var(--ink)}
 .footer-logo span{color:var(--accent)}
 .footer-text{font-size:0.78rem;color:var(--muted)}
+.footer-text a{color:var(--muted);text-decoration:none;transition:color 0.15s}
+.footer-text a:hover{color:var(--accent)}
 
 @media(max-width:600px){
   nav,footer,.main,.hero,.ticker{padding-left:16px;padding-right:16px}
@@ -255,6 +259,10 @@ footer{border-top:1px solid var(--border);padding:22px 36px;display:flex;justify
   <a class="logo" href="/">auto<span>drop</span></a>
   <div class="nav-right">
     <span class="nav-count" id="nav-count"></span>
+    <a class="btn-terms" href="terms.html">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+      Terms
+    </a>
     <button class="btn-list" onclick="openModal()">+ Sell your car</button>
   </div>
 </nav>
@@ -262,8 +270,9 @@ footer{border-top:1px solid var(--border);padding:22px 36px;display:flex;justify
 <section class="hero">
   <div class="hero-eyebrow"><span class="hero-dot"></span> Zimbabwe's car marketplace</div>
   <h1>Find your<br>next <em>drive.</em></h1>
-  <p class="hero-sub">Browse genuine listings from private sellers across the country. No middlemen, no agency fees.</p>
-  <div class="hero-ctas">
+  <p class="hero-sub">Browse genuine listings from private sellers across the country. No middlemen, no agency fees.&nbsp;</p>
+  <p class="hero-sub">(Musavharwe pliz 🙏) . Website still in development so in a week or two everything will be removed. ^_+</p>
+<div class="hero-ctas">
     <button class="btn-primary" onclick="document.querySelector('.main').scrollIntoView({behavior:'smooth'})">Browse listings</button>
     <button class="btn-secondary" onclick="openModal()">List a car for free</button>
   </div>
@@ -366,7 +375,7 @@ footer{border-top:1px solid var(--border);padding:22px 36px;display:flex;justify
 
 <footer>
   <div class="footer-logo">auto<span>drop</span></div>
-  <div class="footer-text">© 2026 AutoDrop · Free private car listings</div>
+  <div class="footer-text">© 2026 AutoDrop · Free private car listings by <a href="alcionweb.xyz">Alcion</a> · <a href="terms.html">Terms of Service</a></div>
 </footer>
 
 <!-- LISTING DETAIL SHEET -->
